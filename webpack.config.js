@@ -1,6 +1,5 @@
 var path = require('path');
 var webpack = require('webpack');
-var WebpackShellPlugin = require('webpack-shell-plugin');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var CopyWebpackPlugin = require('copy-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
@@ -135,7 +134,6 @@ var config = {
                 unsafe: true,
                 warnings: false
             },
-            mangle: env !== 'development',
             output: {
                 comments: false
             }

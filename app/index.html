@@ -27,27 +27,27 @@
                  id="navbarContent">
                 <ul class="nav">
                     <li class="nav-item">
-                        <a class="nav-link"
-                           href="index.html">Features</a>
+                        <a class="nav-link data-link"
+                           data-box="features">Features</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link"
-                           href="#features"
+                        <a class="nav-link data-link"
+                           data-box="videoTour"
                            class="page-scroll">Video Tour</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link"
-                           href="#video"
+                        <a class="nav-link data-link"
+                           data-box="testimonials"
                            class="page-scroll">Reviews</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link"
-                           href="#video"
+                        <a class="nav-link data-link"
+                           data-box="pricing"
                            class="page-scroll">Pricing</a>
                     </li>
                 </ul>
-                <a href="#"
-                   class="navbar-btn hidden-xs btn btn-sm btn-default">GET IT FREE</a>
+                <a data-box="pricing"
+                   class="navbar-btn hidden-xs btn btn-sm btn-default data-link">GET IT FREE</a>
             </div>
         </div>
     </nav>
@@ -84,10 +84,10 @@
                     </svg>
                 </div>
                 <h2>AppStarter. Best landing page for web and mobile apps </h2>
-                <a href="#"
-                   class="btn btn-warning btn-lg">Download Now</a>
-                <a href="#"
-                   class="btn btn-default btn-lg">Watch Video</a>
+                <a data-box="pricing"
+                   class="btn btn-warning btn-lg data-link">Download Now</a>
+                <a data-box="videoTour"
+                   class="btn btn-default btn-lg data-link">Watch Video</a>
             </div>
             <div class="col-sm-6 text-right">
                 <img class="tab"
@@ -97,13 +97,14 @@
     </div>
 </section>
 
-<section class="section-features section__padding">
+<section class="section-features section__padding"
+         id="features">
     <div class="container">
         <h2 class="text-center">How does it work </h2>
         <div class="row">
-            <div class="col-sm-4">
+            <div class="col-12 col-lg-4">
                 <figure>
-                    <div class="icon-wrapper icon-blue">
+                    <div class="icon-wrapper btn-primary">
                         <svg width="24"
                              height="24"
                              xmlns="http://www.w3.org/2000/svg">
@@ -118,9 +119,9 @@
                     </figcaption>
                 </figure>
             </div>
-            <div class="col-sm-4">
+            <div class="col-12 col-lg-4">
                 <figure>
-                    <div class="icon-wrapper icon-accent">
+                    <div class="icon-wrapper btn-warning">
                         <svg width="24"
                              height="21"
                              xmlns="http://www.w3.org/2000/svg">
@@ -135,9 +136,9 @@
                     </figcaption>
                 </figure>
             </div>
-            <div class="col-sm-4">
+            <div class="col-12 col-lg-4">
                 <figure>
-                    <div class="icon-wrapper icon-fuchsia">
+                    <div class="icon-wrapper btn-danger">
                         <svg width="24"
                              height="24"
                              xmlns="http://www.w3.org/2000/svg">
@@ -363,8 +364,8 @@
                              alt="animals">
                     </div>
                     <div ng-show="isSet(3)">
-                        <img src="https://placeimg.com/500/800/tech"
-                             alt="tech">
+                        <img src="https://placeimg.com/500/800/any"
+                             alt="any">
                     </div>
                 </div>
             </div>
@@ -381,10 +382,10 @@
                     her surprise, she lost sight of her in a moment.</p>
             </div>
             <div class="col-sm-5">
-                <a href="#"
-                   class="btn btn-warning btn-lg">Buy for 24$</a>
-                <a href="#"
-                   class="btn btn-default btn-lg">Try It Free</a>
+                <a data-box="pricing"
+                   class="btn btn-warning btn-lg data-link">Buy for 24$</a>
+                <a data-box="pricing"
+                   class="btn btn-default btn-lg data-link">Try It Free</a>
             </div>
         </div>
     </div>
@@ -417,7 +418,8 @@
     </div>
 </section>
 
-<section class="section-videoTour section__padding">
+<section class="section-videoTour section__padding"
+         id="videoTour">
     <div class="container">
         <h2><b>Watch</b> video tour </h2>
         <p>This sounded nonsense to Alice, so she said nothing, but set off at once toward the
@@ -491,7 +493,8 @@
     </div>
 </section>
 
-<section class="section-testimonials">
+<section class="section-testimonials"
+         id="testimonials">
     <div class="container">
         <div class="row">
             <aside class="col-md-4 section__padding">
@@ -564,7 +567,7 @@
                         <img class="card-image"
                              src="./assets/img/Avatar3.png"
                              alt="avatar">
-                        <p class="card-author">This sounded nonsense to Alice, so she said nothing, but set off at once
+                        <p class="card-text">This sounded nonsense to Alice, so she said nothing, but set off at once
                             toward the Red Queen. To her surprise, she lost sight of her in a moment, and found
                             herself.</p>
                     </div>
@@ -579,7 +582,8 @@
     </div>
 </section>
 
-<section class="section-pricing section__padding">
+<section class="section-pricing section__padding"
+         id="pricing">
     <div class="container">
         <div class="row">
             <div class="col-sm-5 item-text">
@@ -740,7 +744,7 @@
                 </div>
 
                 <button type="submit"
-                        class="m-auto btn btn-lg d-flex"
+                        class="m-auto btn btn-lg d-flex btn-warning"
                         ng-disabled="contactForm.$invalid">Send Message
                 </button>
             </form>

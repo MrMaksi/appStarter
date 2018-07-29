@@ -1,5 +1,5 @@
 body {
-  background-color: #f8f9fa;
+  background-color: $baseBgColor;
   font-family: $nunito;
 }
 
@@ -25,6 +25,7 @@ body {
     }
     &-link {
       padding: 0 15px;
+      cursor: pointer;
     }
   }
   .btn {
@@ -38,25 +39,67 @@ body {
 
 .section {
   &__padding {
-    padding: 120px 0;
+    @include media-breakpoint-up(xl) {
+      padding: {
+        top: 120px;
+        bottom: 120px;
+      }
+    ;
+    }
+    @include media-breakpoint-between(lg, xl) {
+      padding: {
+        top: 100px;
+        bottom: 100px;
+      }
+    ;
+    }
+    @include media-breakpoint-between(sm, md) {
+      padding: {
+        top: 80px;
+        bottom: 80px;
+      }
+    ;
+    }
   }
 
   &-header {
     color: white;
     .brand-icon {
-      margin-top: 224px;
+      @include media-breakpoint-up(xl) {
+        margin-top: 224px;
+      }
+      @include media-breakpoint-between(lg, xl) {
+        margin-top: 180px;
+      }
+      @include media-breakpoint-between(sm, md) {
+        margin-top: 120px;
+      }
     }
     h2 {
       margin-top: 12px;
       margin-bottom: 41px;
       font-size: 35px;
       line-height: 50px;
+      @include media-breakpoint-between(sm, md) {
+        font-size: 24px;
+        margin-bottom: 30px;
+      }
     }
     .tab {
       position: relative;
-      top: 138px;
-      max-width: 480px;
-      margin-bottom: 3px;
+      @include media-breakpoint-up(xl) {
+        top: 138px;
+        max-width: 480px;
+        margin-bottom: 3px;
+      }
+      @include media-breakpoint-between(lg, xl) {
+        top: 120px;
+        max-width: 440px;
+      }
+      @include media-breakpoint-between(sm, md) {
+        max-width: 300px;
+        top: 70px;
+      }
     }
     .btn {
       &:not(:last-child) {
@@ -66,10 +109,15 @@ body {
   }
 
   &-features {
-    padding-top: 240px;
+    @include media-breakpoint-up(xl) {
+      padding-top: 240px;
+    }
+    @include media-breakpoint-between(lg, xl) {
+      padding-top: 200px;
+    }
     h2 {
       margin: 0 0 69px;
-      color: #282b31;
+      color: $baseColor;
       font-size: 35px;
       line-height: 50px;
     }
@@ -79,16 +127,26 @@ body {
       text-align: center;
       border-radius: 12px;
       background-color: white;
-      box-shadow: 0 1px 3px 0 rgba(32, 33, 39, .12);
-      h4 {
+      box-shadow: 0 1px 3px 0 $boxShadow;
+      @include media-breakpoint-up(xl) {
+        padding: 60px 30px;
+      }
+      @include media-breakpoint-between(lg, xl) {
+        padding: 50px 25px;
+      }
+      @include media-breakpoint-down(md) {
+        margin: 0 auto 30px;
+        max-width: 400px;
+      }
+        h4 {
         margin-bottom: 12px;
-        color: #282b31;
+        color: $baseColor;
         font-size: 20px;
         line-height: 25px;
       }
       p {
         margin-bottom: 16px;
-        color: #676c75;
+        color: $altColor;
         font-size: 14px;
         line-height: 25px;
       }
@@ -107,20 +165,11 @@ body {
         height: 70px;
         margin: 0 auto 30px;
         border-radius: 15px;
-        box-shadow: 0 6px 12px 0 rgba(32, 33, 39, .08);
+        box-shadow: 0 6px 12px 0 $boxShadowLight;
         svg {
           fill: white;
           fill-rule: evenodd;
         }
-      }
-      &-blue {
-        background-image: linear-gradient(45deg, #2fb9f8 100%, #7956ec 0%);
-      }
-      &-accent {
-        background-image: linear-gradient(-135deg, #ff8e64 0%, #ffe641 100%);
-      }
-      &-fuchsia {
-        background-image: linear-gradient(-135deg, #ad2ab9 0%, #ff618c 100%);
       }
     }
   }
@@ -139,17 +188,17 @@ body {
         &.active,
         &:hover {
           background-color: white;
-          box-shadow: 0 6px 12px 0 rgba(32, 33, 39, .08);
+          box-shadow: 0 6px 12px 0 $boxShadowLight;
         }
       }
       h3 {
-        color: #282b31;
+        color: $baseColor;
         font-size: 16px;
         line-height: 20px;
       }
       p {
         letter-spacing: 0;
-        color: #676c75;
+        color: $altColor;
         font-size: 14px;
         line-height: 25px;
       }
@@ -214,15 +263,15 @@ body {
     text-align: center;
     .row {
       background-color: white;
-      box-shadow: 0 3px 6px 0 rgba(32, 33, 39, .12);
+      box-shadow: 0 3px 6px 0 $boxShadow;
     }
     h3 {
-      color: #282b31;
+      color: $baseColor;
       font-size: 35px;
       line-height: 50px;
     }
     p {
-      color: #676c75;
+      color: $altColor;
       font-size: 16px;
       line-height: 30px;
     }
@@ -231,7 +280,12 @@ body {
     }
     img {
       margin-bottom: -20px;
-      padding-top: 90px;
+      @include media-breakpoint-up(xl) {
+        padding-top: 90px;
+      }
+      @include media-breakpoint-between(lg, xl) {
+        padding-top: 70px;
+      }
     }
   }
 
@@ -249,7 +303,7 @@ body {
       width: 100%;
       max-width: 570px;
       margin: auto;
-      color: rgba(255, 255, 255, .80);
+      color: rgba(white, .80);
       font-size: 16px;
       line-height: 30px;
     }
@@ -259,17 +313,17 @@ body {
   }
 
   &-testimonials {
-    border-bottom: 1px solid #e7e8ea;
+    border-bottom: 1px solid $borderColor;
     aside {
       position: relative;
       display: flex;
       flex: {
         wrap: wrap;
         direction: column;
-      };
-      border-right: 1px solid #e7e8ea;
-      background-color: white;
-      ;;
+      }
+    ;
+      border-right: 1px solid $borderColor;
+      background-color: white;;
       &:before {
         content: '';
         position: absolute;
@@ -287,7 +341,7 @@ body {
     }
     h2 {
       margin-top: 50px;
-      color: #282b31;
+      color: $baseColor;
       font-size: 35px;
       line-height: 50px;
     }
@@ -314,10 +368,10 @@ body {
     .card {
       width: 100%;
       max-width: 570px;
-      padding: 30px;
+      padding: 23px 30px;
       border-radius: 12px;
       background: white;
-      box-shadow: 0 6px 12px 0 rgba(32, 33, 39, .08);
+      box-shadow: 0 6px 12px 0 $boxShadowLight;
       &:nth-child(odd) {
         margin-right: auto;
         .card-image {
@@ -325,14 +379,16 @@ body {
         }
       }
       &:nth-child(even) {
-        margin-left: auto;
-        text-align: right;
-        .card-image {
-          margin-left: 30px;
-        }
-        a,
-        .card-image {
-          order: 1;
+        @include media-breakpoint-up(xl) {
+          margin-left: auto;
+          text-align: right;
+          .card-image {
+            margin-left: 30px;
+          }
+          a,
+          .card-image {
+            order: 1;
+          }
         }
       }
       &:not(:last-child) {
@@ -340,8 +396,8 @@ body {
       }
       &-body {
         display: flex;
-        padding: 0;
-        border-bottom: 1px solid #e7e8ea;
+        padding: 0 0 22px 0;
+        border-bottom: 1px solid $borderColor;
       }
       &-image {
         width: 100%;
@@ -352,6 +408,7 @@ body {
       &-author {
         display: flex;
         justify-content: space-between;
+        padding-top: 15px;
       }
       &-small {
         color: #999ea8;
@@ -359,7 +416,7 @@ body {
         line-height: 25px;
       }
       &-text {
-        color: #282b31;
+        color: $baseColor;
         font-size: 14px;
         line-height: 25px;
       }
@@ -369,7 +426,10 @@ body {
           display: block;
           width: 16px;
           height: 16px;
-          background-image: url(../img/svg/twt.svg);
+          background: {
+            image: url(../img/svg/twt.svg);
+            size: contain;
+          }
         }
       }
     }
@@ -387,6 +447,7 @@ body {
         }
       }
       &-plan {
+        position: relative;
         display: inline-flex;
         flex-direction: column;
         flex-wrap: wrap;
@@ -408,28 +469,33 @@ body {
           }
         }
         &.starter {
+          z-index: -1;
           margin: 20px 0;
+          margin-left: -15px;
           background-color: white;
-          box-shadow: 0 1px 3px 0 rgba(32, 33, 39, .12);
+          box-shadow: 0 1px 3px 0 $boxShadow;
           .item-plan__title {
-            background: #f8f9fa;
-            box-shadow: 0 1px 0 0 #e7e8ea, inset 0 1px 0 0 #e7e8ea;
+            background: $baseBgColor;
+            box-shadow: 0 1px 0 0 $borderColor, inset 0 1px 0 0 $borderColor;
           }
           .item-plan__price {
             p {
               margin-bottom: 26px;
-              color: #282b31;
+              color: $baseColor;
               font-size: 40px;
             }
           }
           ul {
             margin-bottom: 40px;
           }
+          li {
+            background-image: url('../img/svg/ok-alt.svg');
+          }
         }
         &__title {
           text-align: center;
-          background: rgba(255, 255, 255, .07);
-          box-shadow: 0 1px 0 0 rgba(255, 255, 255, .30), inset 0 1px 0 0 rgba(255, 255, 255, .30);
+          background: $boxShadowLight;
+          box-shadow: 0 1px 0 0 rgba(white, .30), inset 0 1px 0 0 rgba(white, .30);
           p {
             margin: 12px 0;
             letter-spacing: 2px;
@@ -456,7 +522,7 @@ body {
           li {
             padding-left: 25px;
             background: {
-              position: 0-10px 2px;
+              position: 0 5px;
               image: url('../img/svg/ok.svg');
               repeat: no-repeat;
             }
@@ -494,31 +560,14 @@ body {
       }
       &-control {
         height: 50px;
-        color: #b9bdc3;
-        border: 1px solid #e7e8ea;
+        border: 1px solid $borderColor;
         border-radius: 6px;
-        background: #f8f9fa;
+        background: $baseBgColor;
         font-size: 17px;
-        @include placeholder {
-          transition: all .3s;
-          color: #b9bdc3;
-        }
-
-        &:focus {
-          outline: none;
-          @include placeholder {
-            color: transparent;
-          }
-        }
       }
       textarea {
         min-height: 215px;
         max-height: 500px;
-      }
-      .btn {
-        color: white;
-        border-radius: 6px;
-        background-image: linear-gradient(-135deg, #ff8e64 0%, #ffe641 100%);
       }
     }
   }
@@ -531,7 +580,7 @@ footer {
     margin-bottom: 0;
   }
   .brand {
-    color: #282b31;
+    color: $baseColor;
     font-size: 20px;
     font-weight: 600;
     line-height: 25px;
@@ -541,7 +590,7 @@ footer {
     color: #999ea8;
     font-size: 11px;
     span {
-      color: #282b31;
+      color: $baseColor;
     }
     p {
       &:last-child {
@@ -564,10 +613,10 @@ footer {
       justify-content: center;
       width: 40px;
       height: 40px;
-      border: 1px solid #e7e8ea;
+      border: 1px solid $borderColor;
       &:hover {
         path {
-          fill: red;
+          fill: darken(#d3d5d9, 10%);
         }
       }
       &:first-child {

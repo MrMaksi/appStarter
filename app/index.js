@@ -2,7 +2,7 @@ import './assets/css/index.scss';
 import 'angular';
 
 const app = angular.module("appStarter", []);
-
+const $ = require('jquery');
 app.controller('controller', function($scope) {
     $scope.tab = 1;
     $scope.setTab = function(newTab) {
@@ -42,14 +42,6 @@ app.controller('controller', function($scope) {
         }
     };
     $scope.onLicenseCountChange();
-    $scope.submitForm = function() {
-
-        // check to make sure the form is completely valid
-        if ($scope.userForm.$valid) {
-            alert('our form is amazing');
-        }
-
-    };
 
     $scope.countries = [
         {
@@ -138,4 +130,12 @@ app.controller('controller', function($scope) {
             }
         });
     }
+});
+
+$(function() {
+    $(document)
+        .on('click', '.data-link[data-box]', function() {
+            const box = $(this).data('box');
+            $('body,html').animate({scrollTop: $('#' + box).offset().top}, 800);
+        });
 });
