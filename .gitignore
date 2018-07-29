@@ -1,0 +1,7 @@
+.idea/
+*.iml
+.DS_Store
+www/
+.vscode/
+package-lock.json
+node_modules/
