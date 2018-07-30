@@ -44,21 +44,18 @@ body {
         top: 120px;
         bottom: 120px;
       }
-    ;
     }
     @include media-breakpoint-between(lg, xl) {
       padding: {
         top: 100px;
         bottom: 100px;
       }
-    ;
     }
     @include media-breakpoint-between(sm, md) {
       padding: {
         top: 80px;
         bottom: 80px;
       }
-    ;
     }
   }
 
@@ -138,7 +135,7 @@ body {
         margin: 0 auto 30px;
         max-width: 400px;
       }
-        h4 {
+      h4 {
         margin-bottom: 12px;
         color: $baseColor;
         font-size: 20px;
@@ -321,7 +318,6 @@ body {
         wrap: wrap;
         direction: column;
       }
-    ;
       border-right: 1px solid $borderColor;
       background-color: white;;
       &:before {

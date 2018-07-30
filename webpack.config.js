@@ -43,13 +43,14 @@ var config = {
                 ]
             },
             {
-                test: /\.(css|scss|sass)$/,
+                test: /\.(css|scss)$/,
                 use: ExtractTextPlugin.extract({
                     fallback: 'style-loader',
                     use: [
                         'css-loader',
-                        'sass-loader',
-                        'resolve-url-loader'
+                        'postcss-loader',
+                        'resolve-url-loader',
+                        'sass-loader?sourceMap'
                     ]
                 })
             },
@@ -91,7 +92,7 @@ var config = {
     },
     devtool: 'eval',
     plugins: [
-       new webpack.LoaderOptionsPlugin({
+        new webpack.LoaderOptionsPlugin({
             minimize: true,
             debug: false,
             options: {
