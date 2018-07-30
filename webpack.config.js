@@ -44,15 +44,34 @@ var config = {
             },
             {
                 test: /\.(css|scss)$/,
-                use: ExtractTextPlugin.extract({
-                    fallback: 'style-loader',
-                    use: [
-                        'css-loader',
-                        'postcss-loader',
-                        'resolve-url-loader',
-                        'sass-loader?sourceMap'
-                    ]
-                })
+                use: [
+                    {
+                        loader: 'style-loader'
+                    },
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            sourceMap: true
+                        }
+                    },
+                    {
+                        loader: 'postcss-loader',
+                        options: {
+                            plugins: [
+                                autoprefixer({
+                                    browsers: ['ie >= 9', 'last 5 version']
+                                })
+                            ],
+                            sourceMap: true
+                        }
+                    },
+                    {
+                        loader: 'sass-loader',
+                        options: {
+                            sourceMap: true
+                        }
+                    }
+                ]
             },
             {
                 test: /\.(jpe?g|png|svg)$/i,
@@ -92,21 +111,6 @@ var config = {
     },
     devtool: 'eval',
     plugins: [
-        new webpack.LoaderOptionsPlugin({
-            minimize: true,
-            debug: false,
-            options: {
-                postcss: [
-                    postcssImport({
-                        addDependencyTo: webpack
-                    }),
-                    precss,
-                    autoprefixer({
-                        browsers: ['last 5 versions', 'ie >= 9']
-                    })
-                ]
-            }
-        }),
         new CopyWebpackPlugin([
             {
                 from: path.join(appPath, 'assets/img'),
