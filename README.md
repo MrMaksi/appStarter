@@ -14,3 +14,8 @@ You will need the following things properly installed on your computer.
 
 * `npm run devserver`
 * Visit your app at [http://localhost:9001](http://localhost:9001)
+
+## Build app
+* `git clone git@github.com:MrMaksi/appStarter.git`
+* `npm run build`
+*  Go to **/www** folder and open **index.html** file

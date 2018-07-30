@@ -7,7 +7,6 @@ var autoprefixer = require('autoprefixer');
 var precss = require('precss');
 var postcssImport = require('postcss-smart-import');
 
-var env = process.env.NODE_ENV || 'development';
 var appPath = path.join(__dirname, './app');
 var wwwPath = path.join(__dirname, './www');
 
@@ -81,7 +80,8 @@ var config = {
                         options: {
                             hash: 'sha512',
                             digest: 'hex',
-                            name: '[hash].[ext]'
+                            outputPath: './assets/img',
+                            name: '[name].[ext]'
                         }
                     },
                     {
