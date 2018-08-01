@@ -129,7 +129,8 @@ app.controller('controller', function($scope) {
                 $scope.availableCity.push(value);
             }
         });
-    }
+    };
+    $scope.toggleClass = false;
 });
 
 $(function() {
